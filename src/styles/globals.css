@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato:wght@300;400;500;700&display=swap');
+
+@font-face {
+  font-family: 'Romul';
+  src: url('/fonts/Romul-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  background-color: #FFFFFF;
+  color: #101010;
+  font-family: 'Lato', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FDF6F0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7D6F6B;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #673E34;
+}
+
+/* Custom cursor */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+
+  .custom-cursor {
+    width: 12px;
+    height: 12px;
+    background: #673E34;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: multiply;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+
+  .custom-cursor.expanded {
+    transform: scale(4);
+    background: #401C13;
+  }
+}
+
+/* Float animation for hero ingredients */
+@keyframes float-1 {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(4deg);
+  }
+}
+
+@keyframes float-2 {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-14px) rotate(-6deg);
+  }
+}
+
+@keyframes float-3 {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(8deg);
+  }
+}
+
+@keyframes float-4 {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(-4deg);
+  }
+}
+
+.float-anim-1 {
+  animation: float-1 3s ease-in-out infinite;
+}
+
+.float-anim-2 {
+  animation: float-2 4s ease-in-out infinite;
+}
+
+.float-anim-3 {
+  animation: float-3 3.5s ease-in-out infinite;
+}
+
+.float-anim-4 {
+  animation: float-4 5s ease-in-out infinite;
+}
+
+/* Nav link underline animation */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: #673E34;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link-light::after {
+  background: #FFFFFF;
+}
+
+/* 50/50 Split Color Text for Custom Orders Hero */
+@media (min-width: 768px) {
+  .nav-text-split {
+    background: linear-gradient(to right, #FFFFFF 50%, #474747 50%);
+    background-attachment: fixed;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .nav-text-split.active {
+    background: linear-gradient(to right, #FFFFFF 50%, #101010 50%);
+    background-attachment: fixed;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .nav-text-split-logo {
+    background: linear-gradient(to right, #FFFFFF 50%, #281612 50%);
+    background-attachment: fixed;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .nav-link.nav-text-split::after {
+    background: linear-gradient(to right, #FFFFFF 50%, #474747 50%);
+    background-attachment: fixed;
+  }
+
+  .nav-link.nav-text-split.active::after {
+    background: linear-gradient(to right, #FFFFFF 50%, #101010 50%);
+    background-attachment: fixed;
+  }
+
+  .nav-text-split:hover {
+    background: linear-gradient(to right, #FFFFFF 50%, #673E34 50%);
+    background-attachment: fixed;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .nav-link.nav-text-split:hover::after {
+    background: linear-gradient(to right, #FFFFFF 50%, #673E34 50%);
+    background-attachment: fixed;
+  }
+}
+
+@media (max-width: 767px) {
+
+  .nav-text-split,
+  .nav-text-split-logo {
+    color: #FFFFFF !important;
+    -webkit-text-fill-color: #FFFFFF !important;
+  }
+
+  .nav-link.nav-text-split::after {
+    background: #FFFFFF;
+  }
+}
+
+/* Dashed border card */
+.dashed-card {
+  border: 1px dashed #7D6F6B;
+  border-radius: 2px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.dashed-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(64, 28, 19, 0.12);
+  border-color: #673E34;
+}
+
+/* Hide scrollbar for filter tabs on mobile */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Step circle fill animation (Custom Orders) */
+.step-circle.filled {
+  background-color: #673E34;
+  border-color: #673E34;
+}
+
+.step-circle.filled .step-number {
+  color: #FFFFFF;
+}
+
+/* Marquee animation (Testimonials) */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee-scroll 25s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
