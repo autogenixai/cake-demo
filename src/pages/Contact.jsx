@@ -55,7 +55,7 @@ export default function Contact() {
     }, [])
 
     const contactCards = [
-        { icon: Phone, label: 'CALL US', value: '+91 98765 43210' },
+        { icon: Phone, label: 'CALL US', value: '+91 00000 00000' },
         { icon: Mail, label: 'EMAIL US', value: 'hello@sweetnoir.in' },
         { icon: MapPin, label: 'VISIT US', value: '14 Patisserie Lane, Bandra West, Mumbai' },
     ]
